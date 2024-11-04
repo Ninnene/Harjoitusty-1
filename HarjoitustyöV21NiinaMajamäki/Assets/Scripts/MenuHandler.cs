@@ -36,13 +36,13 @@ public class MenuHandler : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void Update()
+    /*public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             Pause();
         }
-    }
+    }*/
 
     public void QuitGame()
     {
