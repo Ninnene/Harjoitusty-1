@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     public void Awake()
     {
-        
+        menuHandler = GameObject.Find("Canvas").GetComponent<MenuHandler>();
     }
 
     void Start()
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !gameOver)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
+            playerAnim.SetBool("Death_b", true);
+            playerAnim.SetInteger("DeathType_int", 1);
             gameOver = true;
             Debug.Log("Game Over!");
         }

@@ -23,6 +23,8 @@ public class MenuHandler : MonoBehaviour
         gameOver = GameObject.Find("GameOver");
         pauseMenu = GameObject.Find("PauseMenu");
         pointsTXT.text = pointsFill + pointsNum;
+        GameOff();
+        Time.timeScale = 0f;
         
     }
 
@@ -38,7 +40,7 @@ public class MenuHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            //pointsTXT = 
+            Pause();
         }
     }
 
@@ -49,13 +51,13 @@ public class MenuHandler : MonoBehaviour
     }
     public void Pause()
     {
-        Time.timeScale = 0f;
+        GameOff();
         pauseMenu.SetActive(true);
     }
 
     public void Resume()
     {
-        Time.timeScale = 1f;
+        GameOn();
         pauseMenu.SetActive(false);
     }
     
@@ -65,5 +67,13 @@ public class MenuHandler : MonoBehaviour
         mainMenu.SetActive(false);
     }
 
+    public void GameOn()
+    {
+        Time.timeScale = 1f;
+    }
 
+    public void GameOff()
+    {
+        Time.timeScale = 0f;
+    }
 }
