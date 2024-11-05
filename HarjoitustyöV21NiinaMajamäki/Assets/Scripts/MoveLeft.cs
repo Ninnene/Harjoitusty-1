@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
 {
-
-    private PlayerController playerControllerScript;
+    //tämä koodi laittaa pelin esteet ja taustan liikkumaan vasemmalle
+    private PlauerControllerTheOther playerControllerScript;
     private float speed = 30;
 
     private float leftBound = -15;
@@ -13,7 +13,7 @@ public class MoveLeft : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
+        playerControllerScript = GameObject.Find("Player").GetComponent<PlauerControllerTheOther>();
     }
 
     // Update is called once per frame

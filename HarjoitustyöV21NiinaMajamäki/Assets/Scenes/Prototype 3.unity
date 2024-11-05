@@ -1045,7 +1045,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1557,7 +1557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1809674098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1678,6 +1678,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 100046, guid: 3cf7f489270aac84fb12901330960a5b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 3cf7f489270aac84fb12901330960a5b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1739,35 +1743,13 @@ PrefabInstance:
       addedObject: {fileID: 1940240046}
     - targetCorrespondingSourceObject: {fileID: 100046, guid: 3cf7f489270aac84fb12901330960a5b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1940240045}
+      addedObject: {fileID: 1940240051}
   m_SourcePrefab: {fileID: 100100000, guid: 3cf7f489270aac84fb12901330960a5b, type: 3}
 --- !u!1 &1940240044 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100046, guid: 3cf7f489270aac84fb12901330960a5b, type: 3}
   m_PrefabInstance: {fileID: 1940240043}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1940240045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1940240044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55c4dd74f5dce07459881912db37dacc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpForce: 10
-  gravityModifier: 1
-  isOnGround: 1
-  menuHandler: {fileID: 0}
-  gameOver: 0
-  playerLives: 3
-  explosionParticle: {fileID: 9125212449759046732, guid: cb7cd9b0c56a24d49a40784bd3203ae6, type: 3}
-  dirtParticle: {fileID: 1438565936, guid: fb82dfb8d1c7044c69afd2486befecb3, type: 3}
-  jumpSound: {fileID: 8300000, guid: 913d6445ee8cc4152a9c18da590ee203, type: 3}
-  crashSound: {fileID: 8300000, guid: 0f7d0b7c3397f4dac91f20e8a77d2d57, type: 3}
 --- !u!65 &1940240046
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1787,8 +1769,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.5824394, y: 3.2480624, z: 1}
-  m_Center: {x: -0.13001895, y: 1.5003525, z: 7.1323986e-17}
+  m_Size: {x: 3.5824394, y: 3.1410313, z: 1}
+  m_Center: {x: -0.13001895, y: 1.553868, z: 7.1323986e-17}
 --- !u!54 &1940240047
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1821,6 +1803,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400046, guid: 3cf7f489270aac84fb12901330960a5b, type: 3}
   m_PrefabInstance: {fileID: 1940240043}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1940240051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940240044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac277b84900b27d469e21b6d52d122f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 10
+  gravityModifier: 2
+  gameOver: 0
+  isOnGround: 1
+  explosionParticle: {fileID: 9125212449759046732, guid: cb7cd9b0c56a24d49a40784bd3203ae6, type: 3}
+  dirtParticle: {fileID: 1438565936, guid: fb82dfb8d1c7044c69afd2486befecb3, type: 3}
+  jumpSound: {fileID: 8300000, guid: 113ee460fadc340e4957a7404a9fbb27, type: 3}
+  crashSound: {fileID: 8300000, guid: e7ee25a47d63b46cdaf65480d62b405c, type: 3}
+  playerAudio: {fileID: 859875496}
 --- !u!1 &2014335011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,7 +1859,7 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 10, y: 2.220446e-16, z: 10}

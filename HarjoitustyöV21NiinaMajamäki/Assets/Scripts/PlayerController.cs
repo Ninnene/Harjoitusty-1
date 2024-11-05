@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //tämä koodi ei ole enää käytössä
     private  Rigidbody playerRb;
     public float jumpForce;
     public float gravityModifier;
@@ -34,10 +35,12 @@ public class PlayerController : MonoBehaviour
         Physics.gravity *= gravityModifier;
     }
 
-    void Update()
+    /*void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !gameOver)
         {
+            Debug.Log("Hyppy");
+
             playerAudio.PlayOneShot(jumpSound, 1.0f);
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
@@ -47,7 +50,16 @@ public class PlayerController : MonoBehaviour
         {
             menuHandler.Pause();
         }
+    }*/
+
+    /*void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+        {
+            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
     }
+    */
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -56,7 +68,8 @@ public class PlayerController : MonoBehaviour
             dirtParticle.Play();
             isOnGround = true;
         }
-        else if (collision.gameObject.CompareTag("Obstacle"))
+
+        if (collision.gameObject.CompareTag("Obstacle"))
         {
             playerAudio.PlayOneShot(crashSound, 1.0f);
             dirtParticle.Stop();

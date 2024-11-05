@@ -6,6 +6,7 @@ using TMPro;
 
 public class MenuHandler : MonoBehaviour
 {
+    //Tämä koodi hoitaaa pelin menuja ja niiden toimintaa
     public GameObject mainMenu;
     public GameObject pauseMenu;
     public GameObject gameOver;
@@ -22,6 +23,7 @@ public class MenuHandler : MonoBehaviour
         mainMenu = GameObject.Find("MainMenu");
         gameOver = GameObject.Find("GameOver");
         pauseMenu = GameObject.Find("PauseMenu");
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         pointsTXT.text = pointsFill + pointsNum;
         GameOff();
         Time.timeScale = 0f;

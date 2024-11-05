@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RepeatBG : MonoBehaviour
 {
-
+    //tämä koodi laittaa pelin taustan toistumaan
     private Vector3 startPos;
     private float repeatWidth;
     // Start is called before the first frame update
