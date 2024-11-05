@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MenuHandler : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class MenuHandler : MonoBehaviour
     public GameObject gameOver;
     public TextMeshProUGUI pointsTXT;
     public TextMeshProUGUI livesTXT;
-    public PlayerController playerController;
+    public PlauerControllerTheOther playerController;
 
     public string pointsFill = "Points ";
     public int pointsNum = 0;
@@ -23,8 +24,9 @@ public class MenuHandler : MonoBehaviour
         mainMenu = GameObject.Find("MainMenu");
         gameOver = GameObject.Find("GameOver");
         pauseMenu = GameObject.Find("PauseMenu");
-        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-        pointsTXT.text = pointsFill + pointsNum;
+        playerController = GameObject.Find("Player").GetComponent<PlauerControllerTheOther>();
+        //pointsTXT.text = pointsFill + pointsNum;
+        gameOver.SetActive(false);
         GameOff();
         Time.timeScale = 0f;
         
@@ -33,18 +35,19 @@ public class MenuHandler : MonoBehaviour
     void Start()
     {
         pauseMenu.SetActive(false);
-        gameOver.SetActive(false);
+        //gameOver.SetActive(false);
         pointsTXT.text = pointsFill + pointsNum;
     }
 
     // Update is called once per frame
-    /*public void Update()
+    public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            Pause();
-        }
-    }*/
+       if (playerController.gameOver == true)
+       {
+            GameOver();
+       }
+        
+    }
 
     public void QuitGame()
     {
@@ -65,8 +68,13 @@ public class MenuHandler : MonoBehaviour
     
     public void StartGame()
     {
-        Time.timeScale = 1f;
+        GameOn();
         mainMenu.SetActive(false);
+    }
+
+    public void GameOver()
+    {
+        gameOver.SetActive(true);
     }
 
     public void GameOn()
@@ -77,5 +85,10 @@ public class MenuHandler : MonoBehaviour
     public void GameOff()
     {
         Time.timeScale = 0f;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
